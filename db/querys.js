@@ -11,7 +11,7 @@ async function getUserByUsername(username) {
 
 
 async function getUserById(id) {
-    const {rows} = pool.query(
+    const {rows} = await pool.query(
         "SELECT * FROM users WHERE id = $1",
         [id]
     );
