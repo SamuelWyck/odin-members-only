@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title><%= (signUp) ? "Join the Club" : "Welcome Back" %></title>
+</head>
+<body>
+<main class="authenticate-main">
+    <p class="sign-up-title"><%= (signUp) ? "Join the Club" : "Welcome Back"%></p>
+    <div class="authenticate-modal">
+        <%- include("partials/errors") %>
+        <form action="/<%= (signUp) ? 'signup' : 'login' %>" method="POST" class="auth-form">
+            <% if (signUp) { %>
+            <div>
+                <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" id="firstname" value="<%= locals.firstname %>" required>
+            </div>
+            <div>
+                <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" id="lastname" value="<%= locals.lastname %>" required>
+            </div>
+            <% } %>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" value="<%= locals.username %>" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <% if (signUp) { %>
+            <div>
+                <label for="confirm">Confirm</label>
+                <input type="password" name="confirm" id="confirm" required>
+            </div>
+            <% } %>
+            <div>
+                <button type="submit"><%= (signUp) ? "Join" : "Log In" %></button>
+            </div>
+        </form>
+        <div class="auth-redirect-wrapper">
+            <% if (signUp) { %>
+                <p class="auth-redirect">Already a member? <a href="/login">Log In</a></p>
+            <% } else { %>
+                <p class="auth-redirect">Don't have an account? <a href="/signup">Join the Club</a></p>
+            <% } %>
+        </div>
+    </div>
+</main>
+</body>
+</html>
