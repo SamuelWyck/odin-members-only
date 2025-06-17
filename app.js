@@ -6,6 +6,7 @@ const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
 const passport = require("./passport.js");
 const signUpRoute = require("./routes/signUpRoute.js");
+const logInRoute = require("./routes/logInRoute.js");
 
 
 
@@ -33,10 +34,10 @@ app.use(passport.session());
 
 
 app.get("/", async function(req, res) {
-    return res.send(`hi ${req.user}`);
+    return res.send(`hi ${req.user.username}`);
 });
-
 app.use("/signup", signUpRoute);
+app.use("/login", logInRoute);
 
 
 const PORT = process.env.PORT;
