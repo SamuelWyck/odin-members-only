@@ -19,8 +19,17 @@ async function getUserById(id) {
 };
 
 
+async function addUser(firstname, lastname, username, password) {
+    const {rows} = await pool.query(
+        "INSERT INTO users (firstname, lastname, username, password) VALUES ($1, $2, $3, $4) RETURNING id",
+        [firstname, lastname, username, password]
+    );
+    return rows[0].id;
+};
+
 
 module.exports = {
     getUserByUsername,
-    getUserById
+    getUserById,
+    addUser
 };
