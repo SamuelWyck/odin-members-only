@@ -5,6 +5,8 @@ const pool = require("./db/pool.js");
 const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
 const passport = require("./passport.js");
+const signUpRoute = require("./routes/signUpRoute.js");
+
 
 
 
@@ -31,8 +33,10 @@ app.use(passport.session());
 
 
 app.get("/", async function(req, res) {
-    return res.send("hello world");
+    return res.send(`hi ${req.user}`);
 });
+
+app.use("/signup", signUpRoute);
 
 
 const PORT = process.env.PORT;
