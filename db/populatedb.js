@@ -6,8 +6,13 @@ const {argv} = require("node:process");
 
 async function main() {
 
-    const deletedUserPwd = await bcrypt.hash(argv[6], 10);
-    const memberPwd = await bcrypt.hash(argv[7], 10);
+    const result = await Promise.all([
+        bcrypt.hash(argv[6], 10),
+        bcrypt.hash(argv[7], 10),
+        bcrypt.hash(argv[8], 10)
+    ]);
+
+    const [deletedUserPwd, memberPwd, adminPwd] = result;
     
     
     let SQL = [
@@ -51,12 +56,18 @@ async function main() {
         "password VARCHAR(255) NOT NULL",
         ");",
         "",
+        "CREATE TABLE admin_pwd ( ",
+        "id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,",
+        "password VARCHAR(255) NOT NULL",
+        ");",
+        "",
         "INSERT INTO users (id, firstname, lastname, username, password, member) ",
         "OVERRIDING SYSTEM VALUE VALUES ",
         `(0, 'Deleted', 'User', 'deleteduser', '${deletedUserPwd}', false);`,
         "",
-        "INSERT INTO membership_pwd (password) VALUES ",
-        `('${memberPwd}');`,
+        `INSERT INTO membership_pwd (password) VALUES ('${memberPwd}');`,
+        "",
+        `INSERT INTO admin_pwd (password) VALUES ('${adminPwd}');`
     ];
 
     SQL = SQL.join("");
