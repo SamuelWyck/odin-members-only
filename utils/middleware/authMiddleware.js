@@ -7,4 +7,6 @@ function notLoggedIn(req, res, next) {
 };
 
 
-module.exports = notLoggedIn;
+module.exports = {
+    notLoggedIn
+};
