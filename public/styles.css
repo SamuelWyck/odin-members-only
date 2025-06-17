@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: "roboto", sans-serif;
+    --primary-color: #f03131;
+    --secondary-color: white;
+    --shadow-color: black;
+    --outline-shadow: 0px 0px 15px 0px var(--shadow-color);
+}
+
+main.authenticate-main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.authenticate-modal {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--outline-shadow);
+    margin: .5rem;
+}
+
+
+.sign-up-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: clamp(1rem, .1rem + 6vw, 4rem);
+}
+
+form.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-form label {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-left: .1rem;
+}
+
+.auth-form input {
+    font-size: 1.3rem;
+    height: 3ch;
+    width: 100%;
+    padding: 0 .2rem;
+    outline: none;
+}
+
+.auth-form input:hover, .auth-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.auth-form button {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    outline: none;
+}
+
+.auth-form button:hover, .auth-form button:focus {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-style: inset;
+}
+
+.auth-form > :last-child {
+    display: flex;
+    justify-content: center;
+}
+
+.auth-redirect-wrapper {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.form-errors {
+    list-style: none;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+}
+
+.form-error {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    max-width: 20ch;
+}
