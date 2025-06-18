@@ -4,28 +4,26 @@ const asyncHandler = require("express-async-handler");
 
 
 const logInGet = asyncHandler(async function(req, res) {
-    return res.render("authenticate", {
-        signUp: false
-    });
-});
+    let errorMsg = null;
+    if (req.session.messages) {
+        errorMsg = req.session.messages[0];
+        delete req.session.messages;
+    }
 
-
-
-const logInPost = asyncHandler(async function(req, res) {
     return res.render("authenticate", {
         signUp: false,
-        username: req.body.username
-    })
+        errors: [{msg: errorMsg}]
+    });
 });
 
 
 
 module.exports = {
     logInGet,
-    logInPost: [
+    logInPost:
         passport.authenticate("local", {
-            successRedirect: "/"
-        }),
-        logInPost
-    ]
+            successRedirect: "/",
+            failureRedirect: "/login",
+            failureMessage: true
+        })
 };
