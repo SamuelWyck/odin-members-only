@@ -1,16 +1,22 @@
 <header>
-    <p>Club</p>
+    <div class="logo-wrapper">
+        <img class="logo" src="/logo.svg" alt="">
+        <p class="logo-banner">The Club</p>
+    </div>
+    <button class="main-menu-btn">
+        <img class="main-menu-img" src="/menu.svg" alt="menu">
+    </button>
     <% if (locals.user) { %>
         <nav>
             <a href="/member">Membership</a>
             <a href="/admin">Admin</a>
-            <div>
-                <button class="profile-btn"><%= locals.user.username %> <img class="menu-img" src="/menu-arrow.svg" alt="arrow"></button>
+            <div class="user-menu-wrapper">
+                <button class="user-btn"><%= locals.user.username %> <img class="user-menu-img rotate" src="/menu-arrow.svg" alt="arrow"></button>
                 <div class="user-menu hidden">
-                    <p>Member <img src="/<%= (locals.user.member) ? 'true' : 'false' %>.svg" alt="status"></p>
-                    <p>Admin <img src="/<%= (locals.user.admin) ? 'true' : 'false' %>.svg" alt="status"></p>
+                    <p class="status">Member <img class="status-img" src="/<%= (locals.user.member) ? 'true' : 'false' %>.svg" alt="status"></p>
+                    <p class="status">Admin <img class="status-img" src="/<%= (locals.user.admin) ? 'true' : 'false' %>.svg" alt="status"></p>
+                    <hr>
                     <a href="/logout">Logout</a>
-
                 </div>
             </div>
         </nav>
