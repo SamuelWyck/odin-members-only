@@ -7,6 +7,7 @@ const pgSession = require("connect-pg-simple")(session);
 const passport = require("./passport.js");
 const signUpRoute = require("./routes/signUpRoute.js");
 const logInRoute = require("./routes/logInRoute.js");
+const addUserToReq = require("./utils/middleware/addUserToReq.js");
 
 
 
@@ -31,6 +32,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(addUserToReq);
 
 
 app.get("/", async function(req, res) {
