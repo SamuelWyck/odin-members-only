@@ -5,9 +5,10 @@ const pool = require("./db/pool.js");
 const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
 const passport = require("./passport.js");
+const addUserToRes = require("./utils/middleware/addUserToRes.js");
 const signUpRoute = require("./routes/signUpRoute.js");
 const logInRoute = require("./routes/logInRoute.js");
-const addUserToRes = require("./utils/middleware/addUserToRes.js");
+const homeRoute = require("./routes/homeRoute.js"); 
 
 
 
@@ -36,9 +37,7 @@ app.use(passport.session());
 app.use(addUserToRes);
 
 
-app.get("/", async function(req, res) {
-    return res.send(`hi ${req.user}`);
-});
+app.use("/", homeRoute);
 app.use("/signup", signUpRoute);
 app.use("/login", logInRoute);
 
