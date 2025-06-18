@@ -1,0 +1,23 @@
+<header>
+    <p>Club</p>
+    <% if (locals.user) { %>
+        <nav>
+            <a href="/member">Membership</a>
+            <a href="/admin">Admin</a>
+            <div>
+                <button class="profile-btn"><%= locals.user.username %> <img class="menu-img" src="/menu-arrow.svg" alt="arrow"></button>
+                <div class="user-menu hidden">
+                    <p>Member <img src="/<%= (locals.user.member) ? 'true' : 'false' %>.svg" alt="status"></p>
+                    <p>Admin <img src="/<%= (locals.user.admin) ? 'true' : 'false' %>.svg" alt="status"></p>
+                    <a href="/logout">Logout</a>
+
+                </div>
+            </div>
+        </nav>
+    <% } else { %>
+        <nav>
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Log In</a>
+        </nav>
+    <% } %>
+</header>
