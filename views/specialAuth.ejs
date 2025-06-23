@@ -18,7 +18,7 @@
             <form class="auth-form" action="/auth/<%= action %>" method="POST">
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="It's 'member'" required>
+                    <input type="password" name="password" id="password" placeholder="<%= (action === 'member') ? 'It is member' : '' %>" required>
                 </div>
                 <div>
                     <button>Submit</button>
