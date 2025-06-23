@@ -2,7 +2,7 @@
     <% for (let message of locals.messages) { %>
         <div class="message-card">
             <% if (locals.user) { %>
-                <% if (locals.user.admin || message.id === locals.user.id) { %>
+                <% if (locals.user.admin || message.userid === locals.user.id) { %>
                     <div class="del-wrapper">
                         <form action="/delete/<%= message.id %>">
                             <button>Delete</button>
