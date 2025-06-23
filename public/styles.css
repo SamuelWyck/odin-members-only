@@ -284,7 +284,7 @@ p.status {
     display: flex;
     align-items: center;
     border-radius: 25px;
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
     box-shadow: 4px 6px 10px 0px gray;
