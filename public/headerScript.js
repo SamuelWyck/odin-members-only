@@ -4,6 +4,9 @@
     const userMenuImg = document.querySelector(".user-menu-img");
     const mainMenu = document.querySelector("header > nav");
     const mainMenuBtn = document.querySelector(".main-menu-btn");
+    const newMessageModal = document.querySelector(".new-message-modal");
+    const newMessageBtn = document.querySelector(".new-btn");
+    const exitNewMessageBtn = document.querySelector(".new-message-exit-btn");
 
 
 
@@ -62,4 +65,16 @@
             smallWindow = false
         }
     });
+
+
+
+    if (newMessageBtn) {
+        newMessageBtn.addEventListener("click", function() {
+            newMessageModal.classList.remove("hidden");
+        });
+
+        exitNewMessageBtn.addEventListener("click", function() {
+            newMessageModal.classList.add("hidden")
+        });
+    }
 })();
