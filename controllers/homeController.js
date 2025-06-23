@@ -6,7 +6,10 @@ const {validationResult} = require("express-validator");
 
 
 const homeGet = asyncHandler(async function(req, res) {
-    return res.render("homePage");
+    const messages = await db.getAllMessages();
+    return res.render("homePage", {
+        messages: messages
+    });
 });
 
 
