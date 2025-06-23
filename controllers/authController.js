@@ -14,9 +14,9 @@ const membershipGet = asyncHandler(async function(req, res) {
 
 const membershipPost = asyncHandler(async function(req, res) {
     const password = req.body.password;
-    const adminPwdHash = await db.getMembershipPassword();
+    const memberPwdHash = await db.getMembershipPassword();
 
-    const match = await bcrypt.compare(password, adminPwdHash);
+    const match = await bcrypt.compare(password, memberPwdHash);
     if (!match) {
         return res.status(400).render("specialAuth", {
             title: "Become a Member",
@@ -31,8 +31,37 @@ const membershipPost = asyncHandler(async function(req, res) {
 });
 
 
+const adminGet = asyncHandler(async function(req, res) {
+    return res.render("specialAuth", {
+        title: "Become an Admin",
+        action: "admin"
+    });
+});
+
+
+const adminPost = asyncHandler(async function(req, res) {
+    const password = req.body.password;
+    const adminPwdHash = await db.getAdminPassword();
+
+    const match = await bcrypt.compare(password, adminPwdHash);
+    if (!match) {
+        return res.status(400).render("specialAuth", {
+            title: "Become an Admin",
+            action: "admin",
+            errors: [{msg: "Incorrect password"}]
+        });
+    }
+
+    const userId = req.user.id;
+    await db.makeUserAdmin(userId);
+    return res.redirect("/");
+});
+
+
 
 module.exports = {
     membershipGet,
-    membershipPost
+    membershipPost,
+    adminGet,
+    adminPost
 };
