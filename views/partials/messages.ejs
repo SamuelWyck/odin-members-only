@@ -1,0 +1,27 @@
+<div class="messages">
+    <% for (let message of locals.messages) { %>
+        <div class="message-card">
+            <% if (locals.user) { %>
+                <% if (locals.user.admin || message.id === locals.user.id) { %>
+                    <div class="del-wrapper">
+                        <form action="/delete/<%= message.id %>">
+                            <button>Delete</button>
+                        </form>
+                    </div>
+                <% } %>
+                <div class="meta-info">
+                    <p class="username"><%= (locals.user.admin || locals.user.member) ? message.username : 'xxxxxx' %></p>
+                    <p class="date"><%= (locals.user.admin || locals.user.member) ? message.date : 'xx xx xxxx' %></p>
+                </div>
+            <% } else { %>
+                <div class="meta-info">
+                    <p class="username">xxxxxx</p>
+                    <p class="date">xx xx xxxx</p>
+                </div>
+            <% } %>
+            <p class="message-text">
+                <%= message.text %>
+            </p>
+        </div>
+    <% } %>
+</div>
