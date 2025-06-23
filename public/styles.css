@@ -301,6 +301,78 @@ p.status {
     padding: .3rem 1rem;
 }
 
+.new-message-modal {
+    position: absolute;
+    /* width: fit-content; */
+    max-width: 400px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 30%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 10px 0px gray;
+    border-radius: 20px;
+    animation-name: slide-in;
+    animation-duration: .2s;
+    animation-fill-mode: backwards;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea {
+    outline: none;
+    font-family: "roboto", sans-serif;
+    font-size: 1.2rem;
+    height: 3ch;
+    padding: 0 .3rem;
+    width: 100%;
+    border-radius: 10px;
+    border-color: var(--primary-color);
+}
+
+textarea {
+    height: 15ch;
+    border-width: 2px;
+    padding: .1rem .3rem;
+}
+
+input:hover, textarea:hover {
+    border-color: black;
+    border-style: solid;
+}
+
+.new-message-modal > :first-child {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+}
+
+form > :last-child {
+    display: flex;
+    justify-content: center;
+}
+
+.new-message-modal button {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: .5rem 1rem;
+}
+
+.new-message-modal button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
 
 
 @keyframes slide-in {
