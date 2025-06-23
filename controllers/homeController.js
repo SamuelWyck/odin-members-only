@@ -25,7 +25,6 @@ const logOutGet = asyncHandler(async function(req, res, next) {
 
 
 
-
 const newMessagePost = asyncHandler(async function(req, res) {
     const errors = validationResult(req);
 
@@ -45,11 +44,20 @@ const newMessagePost = asyncHandler(async function(req, res) {
 
 
 
+const deletePost = asyncHandler(async function(req, res) {
+    const messageId = Number(req.body.id);
+    await db.deleteMessageById(messageId);
+    return res.redirect("/");
+});
+
+
+
 module.exports = {
     homeGet,
     logOutGet,
     newMessagePost: [
         messageValidator,
         newMessagePost
-    ]
+    ],
+    deletePost
 };
