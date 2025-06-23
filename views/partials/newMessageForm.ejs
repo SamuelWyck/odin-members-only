@@ -1,0 +1,12 @@
+<div class="new-message-modal hidden">
+    <div><button class="new-message-exit-btn" type="button">X</button></div>
+    <form action="/new" method="POST">
+        <div>
+            <input type="text" id="title" name="title" placeholder="Subject" maxlength="100" required>
+        </div>
+        <div>
+            <textarea name="text" id="text" placeholder="Message" maxlength="500"></textarea>
+        </div>
+        <div><button type="submit">Post</button></div>
+    </form>
+</div>
