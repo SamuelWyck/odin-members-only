@@ -448,6 +448,21 @@ form > :last-child {
     word-break: break-word;
 }
 
+.auth-form-wrapper {
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.auth-title {
+    text-align: center;
+    max-width: 20ch;
+    word-break: break-word;
+    margin: 5rem auto;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
 
 
 @keyframes slide-in {
