@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/headerScript.js" defer></script>
+    <title>The Club</title>
+</head>
+<body>
+<div id="root">
+    <%- include("partials/header")%>
+    <main>
+        <p class="auth-title"><%= title %></p>
+        <div class="auth-form-wrapper">
+            <%- include("partials/errors") %>
+            <form class="auth-form" action="/auth/<%= action %>" method="POST">
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="It's 'member'" required>
+                </div>
+                <div>
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>
