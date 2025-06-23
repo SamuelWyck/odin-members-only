@@ -4,7 +4,8 @@
             <% if (locals.user) { %>
                 <% if (locals.user.admin || message.userid === locals.user.id) { %>
                     <div class="del-wrapper">
-                        <form action="/delete/<%= message.id %>">
+                        <form action="/delete" method="POST">
+                            <input type="text" value="<%= message.id %>" name="id" hidden>
                             <button>Delete</button>
                         </form>
                     </div>
