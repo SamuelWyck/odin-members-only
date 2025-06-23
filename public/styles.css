@@ -290,7 +290,7 @@ p.status {
     align-items: center;
     border-radius: 25px;
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
     box-shadow: 4px 6px 10px 0px gray;
     will-change: transform;
@@ -461,6 +461,14 @@ form > :last-child {
     color: var(--primary-color);
     font-size: 1.3rem;
     font-weight: bold;
+}
+
+footer {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    color: var(--secondary-color);
 }
 
 
