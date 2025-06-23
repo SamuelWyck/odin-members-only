@@ -50,7 +50,7 @@ async function addMessageUserLink(userId, messageId) {
 
 async function getAllMessages() {
     const {rows} = await pool.query(
-        "SELECT m.id, TO_CHAR(m.timestamp, $1) as date, m.text, m.title, u.username FROM messages AS m JOIN user_messages AS um ON um.message_id = m.id JOIN users AS u ON u.id = um.user_id",
+        "SELECT m.id, TO_CHAR(m.timestamp, $1) as date, m.text, m.title, u.username, u.id as userid FROM messages AS m JOIN user_messages AS um ON um.message_id = m.id JOIN users AS u ON u.id = um.user_id",
         [dateFormat]
     );
     return rows;
