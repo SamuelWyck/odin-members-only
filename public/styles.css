@@ -180,6 +180,11 @@ header > nav > a:hover, header > nav > a:focus {
     background-color: var(--secondary-color);
 }
 
+header .home-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
 .main-menu-btn {
     display: none;
     width: 40px;
