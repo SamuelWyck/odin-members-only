@@ -85,6 +85,14 @@ async function makeUserMember(userId) {
 };
 
 
+async function makeUserAdmin(userId) {
+    await pool.query(
+        "UPDATE users SET admin = true WHERE id = $1",
+        [userId]
+    );
+};
+
+
 module.exports = {
     getUserByUsername,
     getUserById,
@@ -95,5 +103,6 @@ module.exports = {
     deleteMessageById,
     getAdminPassword,
     getMembershipPassword,
-    makeUserMember
+    makeUserMember,
+    makeUserAdmin
 };
