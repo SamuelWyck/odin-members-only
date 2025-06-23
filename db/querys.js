@@ -65,6 +65,26 @@ async function deleteMessageById(id) {
 };
 
 
+async function getAdminPassword() {
+    const {rows} = await pool.query("SELECT * FROM admin_pwd");
+    return rows[0].password;
+};
+
+
+async function getMembershipPassword() {
+    const {rows} = await pool.query("SELECT * FROM membership_pwd");
+    return rows[0].password;
+};
+
+
+async function makeUserMember(userId) {
+    await pool.query(
+        "UPDATE users SET member = true WHERE id = $1",
+        [userId]
+    );
+};
+
+
 module.exports = {
     getUserByUsername,
     getUserById,
@@ -72,5 +92,8 @@ module.exports = {
     addMessage,
     addMessageUserLink,
     getAllMessages,
-    deleteMessageById
+    deleteMessageById,
+    getAdminPassword,
+    getMembershipPassword,
+    makeUserMember
 };
