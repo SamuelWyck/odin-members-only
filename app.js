@@ -9,6 +9,7 @@ const addUserToRes = require("./utils/middleware/addUserToRes.js");
 const signUpRoute = require("./routes/signUpRoute.js");
 const logInRoute = require("./routes/logInRoute.js");
 const homeRoute = require("./routes/homeRoute.js"); 
+const authRoute = require("./routes/authRoute.js");
 
 
 
@@ -40,6 +41,7 @@ app.use(addUserToRes);
 app.use("/", homeRoute);
 app.use("/signup", signUpRoute);
 app.use("/login", logInRoute);
+app.use("/auth", authRoute);
 
 
 const PORT = process.env.PORT;
