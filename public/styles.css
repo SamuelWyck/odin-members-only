@@ -269,6 +269,38 @@ p.status {
     width: 25px;
 }
 
+.new-btn {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 4px 6px 10px 0px gray;
+    will-change: transform;
+    transition: transform .1s ease-in-out;
+}
+
+.new-btn:hover, .new-btn:focus {
+    transform: scale(1.1);
+}
+
+.new-btn-big {
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.new-btn-small {
+    display: none;
+    font-size: 2.5rem;
+    padding: .3rem 1rem;
+}
+
 
 
 @keyframes slide-in {
@@ -297,5 +329,18 @@ p.status {
         animation-timing-function: ease-in-out;
         animation-fill-mode: backwards;
         transform-origin: top;
+    }
+
+    .new-btn-big {
+        display: none;
+    }
+
+    .new-btn-small {
+        display: block;
+    }
+
+    .new-btn {
+        border-radius: 50%;
+        box-shadow: 2px 4px 10px 0px gray;
     }
 }

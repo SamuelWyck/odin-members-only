@@ -11,7 +11,14 @@
 <body>
     <div id="root">
         <%- include("partials/header")%>
-        <main></main>
+        <main>
+            <% if (locals.user) { %>
+                <button class="new-btn" type="button">
+                    <span class="new-btn-big">New Message</span>
+                    <span class="new-btn-small">+</span>
+                </button>
+            <% } %>
+        </main>
     </div>
 </body>
 </html>
