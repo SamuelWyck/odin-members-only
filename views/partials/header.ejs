@@ -10,8 +10,8 @@
     </button>
     <% if (locals.user) { %>
         <nav>
-            <a href="/member">Membership</a>
-            <a href="/admin">Admin</a>
+            <a href="/auth/member">Membership</a>
+            <a href="/auth/admin">Admin</a>
             <div class="user-menu-wrapper">
                 <button class="user-btn"><span class="username-span"><%= locals.user.username %></span> <img class="user-menu-img rotate" src="/menu-arrow.svg" alt="arrow"></button>
                 <div class="user-menu hidden">
