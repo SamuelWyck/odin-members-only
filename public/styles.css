@@ -119,7 +119,7 @@ form.auth-form {
 }
 
 .form-error {
-    color: var(--primary-color);
+    color: black;
     font-size: 1.1rem;
     font-weight: bold;
     max-width: 20ch;
