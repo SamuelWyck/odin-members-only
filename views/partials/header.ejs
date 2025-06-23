@@ -11,7 +11,7 @@
             <a href="/member">Membership</a>
             <a href="/admin">Admin</a>
             <div class="user-menu-wrapper">
-                <button class="user-btn"><%= locals.user.username %> <img class="user-menu-img rotate" src="/menu-arrow.svg" alt="arrow"></button>
+                <button class="user-btn"><span class="username-span"><%= locals.user.username %></span> <img class="user-menu-img rotate" src="/menu-arrow.svg" alt="arrow"></button>
                 <div class="user-menu hidden">
                     <p class="status">Member <img class="status-img" src="/<%= (locals.user.member) ? 'true' : 'false' %>.svg" alt="status"></p>
                     <p class="status">Admin <img class="status-img" src="/<%= (locals.user.admin) ? 'true' : 'false' %>.svg" alt="status"></p>
