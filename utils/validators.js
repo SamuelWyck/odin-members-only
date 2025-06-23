@@ -39,6 +39,18 @@ const signUpValidator = [
 
 
 
+const messageValidator = [
+    body("title").trim()
+        .notEmpty().withMessage(`Subject ${notEmptyError}`)
+        .isLength({max: 100}).withMessage(`Title ${tooLongError} 100 characters`),
+    body("text").trim()
+        .notEmpty().withMessage(`Message ${notEmptyError}`)
+        .isLength({max: 500}).withMessage(`Message ${tooLongError} 500 characters`)
+];
+
+
+
 module.exports = {
-    signUpValidator
+    signUpValidator,
+    messageValidator
 };
