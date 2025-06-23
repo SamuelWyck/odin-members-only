@@ -7,6 +7,8 @@
     const newMessageModal = document.querySelector(".new-message-modal");
     const newMessageBtn = document.querySelector(".new-btn");
     const exitNewMessageBtn = document.querySelector(".new-message-exit-btn");
+    const input = document.querySelector("input");
+    const textarea = document.querySelector("textarea");
 
 
 
@@ -74,7 +76,9 @@
         });
 
         exitNewMessageBtn.addEventListener("click", function() {
-            newMessageModal.classList.add("hidden")
+            newMessageModal.classList.add("hidden");
+            input.value = "";
+            textarea.value = "";
         });
     }
 })();
