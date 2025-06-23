@@ -28,8 +28,27 @@ async function addUser(firstname, lastname, username, password) {
 };
 
 
+async function addMessage(title, text) {
+    const {rows} = await pool.query(
+        "INSERT INTO messages (title, text) VALUES ($1, $2) RETURNING id",
+        [title, text]
+    );
+    return rows[0].id;
+};
+
+
+async function addMessageUserLink(userId, messageId) {
+    await pool.query(
+        "INSERT INTO user_messages (user_id, message_id) VALUES ($1, $2)",
+        [userId, messageId]
+    );
+};
+
+
 module.exports = {
     getUserByUsername,
     getUserById,
-    addUser
+    addUser,
+    addMessage,
+    addMessageUserLink
 };
