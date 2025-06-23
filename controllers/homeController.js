@@ -28,7 +28,7 @@ const newMessagePost = asyncHandler(async function(req, res) {
 
     if (!errors.isEmpty()) {
         return res.status(400).render("homePage", {
-            shown: true,
+            showing: true,
             title: req.body.title,
             text: req.body.text,
             errors: errors.array()
