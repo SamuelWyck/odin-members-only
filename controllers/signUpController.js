@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const {signUpValidator} = require("../utils/validators.js");
 const {validationResult} = require("express-validator");
 const db = require("../db/querys.js");
-const capitzlize = require("../utils/capitalize.js");
+const capitalize = require("../utils/capitalize.js");
 const bcrypt = require("bcryptjs");
 
 
@@ -26,8 +26,8 @@ const signUpPost = asyncHandler(async function(req, res) {
         });
     }
 
-    const firstname = capitzlize(req.body.firstname);
-    const lastname = capitzlize(req.body.lastname);
+    const firstname = capitalize(req.body.firstname);
+    const lastname = capitalize(req.body.lastname);
     const username = req.body.username.trim();
     const pwdHash = await bcrypt.hash(req.body.password, 10);
     await db.addUser(firstname, lastname, username, pwdHash);
