@@ -313,7 +313,7 @@ p.status {
 }
 
 .new-message-modal {
-    position: absolute;
+    position: fixed;
     /* width: fit-content; */
     max-width: 400px;
     left: 0;
